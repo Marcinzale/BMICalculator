@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewBmiCalculator"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Calculate your\nBody Mass Index"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerCm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/black"
+
+        app:layout_constraintEnd_toStartOf="@+id/numberPickerKg"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+
+    <NumberPicker
+        android:id="@+id/numberPickerKg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/numberPickerCm"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+
+    <TextView
+        android:id="@+id/tvCm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Cm"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/numberPickerCm"
+        app:layout_constraintStart_toStartOf="@+id/numberPickerCm"
+        app:layout_constraintTop_toBottomOf="@+id/numberPickerCm" />
+
+    <TextView
+        android:id="@+id/tvKg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Kg"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/numberPickerKg"
+        app:layout_constraintStart_toStartOf="@+id/numberPickerKg"
+        app:layout_constraintTop_toBottomOf="@+id/numberPickerKg" />
+
+    <TextView
+        android:id="@+id/textViewResultCm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCm" />
+
+    <TextView
+        android:id="@+id/textViewResultKg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultCm" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
