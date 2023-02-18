@@ -8,18 +8,20 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    public Integer height, weight;
+    NumberPicker numberPickerCm, numberPickerKg;
+    TextView textView, textViewResultCm, textViewResultKg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        TextView textViewResultCm = findViewById(R.id.textViewResultCm);
-        TextView textViewResultKg = findViewById(R.id.textViewResultKg);
+        textViewResultCm = findViewById(R.id.textViewResultCm);
+        textViewResultKg = findViewById(R.id.textViewResultKg);
+        textView = findViewById(R.id.textView);
 
-        NumberPicker numberPickerCm = findViewById(R.id.numberPickerCm);
-        NumberPicker numberPickerKg = findViewById(R.id.numberPickerKg);
+        numberPickerCm = findViewById(R.id.numberPickerCm);
+        numberPickerKg = findViewById(R.id.numberPickerKg);
 
         numberPickerCm.setMinValue(100);
         numberPickerCm.setMaxValue(220);
@@ -29,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
         numberPickerKg.setMaxValue(200);
         numberPickerKg.setValue(60);
 
-        numberPickerCm.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPickerCm, int oldValue, int newValue) {
-                textViewResultCm.setText("Cm = " + newValue);
-            }
-        });
-        numberPickerKg.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPickerKg, int oldValue, int newValue) {
-//                weight = newValue;
-                textViewResultKg.setText("Kg = " + newValue);
-            }
-        });
+        numberPickerCm.setOnValueChangedListener((numberPickerCm, oldValue, newValue) -> calculateBmi());
+        numberPickerKg.setOnValueChangedListener((numberPickerKg, oldValue, newValue) -> calculateBmi());
 
+    }
+    private void calculateBmi() {
+        String height = String.valueOf(numberPickerCm.getValue());
+        String weight = String.valueOf(numberPickerKg.getValue());
+
+        float heightValue = Float.parseFloat(height);
+        float weightValue = Float.parseFloat(weight);
+
+        float bmi = (float) (weightValue / (heightValue * heightValue)*100)*100;
+
+        textView.setText("Your BMI is: " + String.format("%.2f", bmi));
     }
 }
