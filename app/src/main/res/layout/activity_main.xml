@@ -26,31 +26,31 @@
         android:id="@+id/numberPickerCm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="@color/black"
 
-        app:layout_constraintEnd_toStartOf="@+id/numberPickerKg"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/Height"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+        app:layout_constraintStart_toStartOf="@+id/Height"
+        app:layout_constraintTop_toBottomOf="@+id/Height" />
 
     <NumberPicker
         android:id="@+id/numberPickerKg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textViewWeight"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/numberPickerCm"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+        app:layout_constraintStart_toStartOf="@+id/textViewWeight"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWeight" />
 
     <TextView
         android:id="@+id/tvCm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Cm"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/numberPickerCm"
         app:layout_constraintStart_toStartOf="@+id/numberPickerCm"
         app:layout_constraintTop_toBottomOf="@+id/numberPickerCm" />
@@ -59,45 +59,56 @@
         android:id="@+id/tvKg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Kg"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/numberPickerKg"
         app:layout_constraintStart_toStartOf="@+id/numberPickerKg"
         app:layout_constraintTop_toBottomOf="@+id/numberPickerKg" />
 
     <TextView
-        android:id="@+id/textViewResultCm"
+        android:id="@+id/textViewResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textSize="34sp"
+        android:layout_marginTop="64dp"
+        android:text="Your BMI is:"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCm" />
 
     <TextView
-        android:id="@+id/textViewResultKg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResultCm" />
-
-    <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewResultKg"
-        app:layout_constraintStart_toStartOf="@+id/textViewResultKg"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResultKg" />
+        android:text="Height"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/textViewWeight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+
+    <TextView
+        android:id="@+id/textViewWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Weight"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Height"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBmiCalculator" />
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

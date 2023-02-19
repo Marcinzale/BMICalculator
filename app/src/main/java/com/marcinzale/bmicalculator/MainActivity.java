@@ -9,16 +9,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     NumberPicker numberPickerCm, numberPickerKg;
-    TextView textView, textViewResultCm, textViewResultKg;
+    TextView textViewResultCm, textViewResultKg, textViewResult, textViewMessage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        textViewResultCm = findViewById(R.id.textViewResultCm);
-        textViewResultKg = findViewById(R.id.textViewResultKg);
-        textView = findViewById(R.id.textView);
+        textViewResult = findViewById(R.id.textViewResult);
+        textViewMessage = findViewById(R.id.textViewMessage);
 
         numberPickerCm = findViewById(R.id.numberPickerCm);
         numberPickerKg = findViewById(R.id.numberPickerKg);
@@ -44,6 +43,24 @@ public class MainActivity extends AppCompatActivity {
 
         float bmi = (float) (weightValue / (heightValue * heightValue)*100)*100;
 
-        textView.setText("Your BMI is: " + String.format("%.2f", bmi));
+        textViewResult.setText("Your BMI is: " + String.format("%.2f", bmi));
+
+        if (bmi < 16.0) {
+            textViewMessage.setText ("This is starvation. You need to eat more.");
+        } else if ((bmi > 16) && (bmi <= 16.9)) {
+            textViewMessage.setText ("This is emaciation. You need to eat more.");
+        } else if ((bmi >= 17.0) && (bmi <= 18.5)) {
+            textViewMessage.setText ("This is underweight. You need to eat more.");
+        } else if ((bmi > 18.5) && (bmi <= 24.9)) {
+            textViewMessage.setText ("Your weight is correct.");
+        } else if ((bmi >= 25) && (bmi < 29.9)) {
+            textViewMessage.setText ("Overweight");
+        } else if ((bmi >= 30) && (bmi <= 34.9)) {
+            textViewMessage.setText ("First degree obesity.");
+        } else if ((bmi >= 35) && (bmi <= 39.9)) {
+            textViewMessage.setText ("Second degree obesity.");
+        } else if (bmi >= 40) {
+            textViewMessage.setText ("Third degree obesity.");
+        }
     }
 }
